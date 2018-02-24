@@ -7,6 +7,7 @@
  * Licensed under the MIT license.
  *
  */
+//# sourceURL=main.js
 (function ($) {
 
     function Scroller(elem, settings) {
