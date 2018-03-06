@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pb.charts.dao.VO.QueryMapperExt" >
+  <resultMap id="BaseResultMap" type="com.pb.charts.entity.VO.Query" >
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="goodsName" property="goodsName" jdbcType="VARCHAR" />
+    <result column="goodsCode" property="goodsCode" jdbcType="VARCHAR" />
+    <result column="recPrice" property="recPrice" jdbcType="VARCHAR" />
+    <result column="stockName" property="stockName" jdbcType="VARCHAR" />
+    <result column="size" property="size" jdbcType="VARCHAR" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="qty" property="qty" jdbcType="VARCHAR" />
+  </resultMap>
+
+
+  <select id="selectStocks" resultMap="BaseResultMap">
+    select pt.typeId as id,pt.FullName as goodsName,pt.UserCode as goodsCode,pt.recPrice as recPrice ,s.FullName as stockName,[SIZE].NAME as size,Color.NAME as color,gsk.qty from
+  Goodsstockdetail gsk
+  LEFT JOIN GoodsStocks gs on gs.orderid = gsk.orderid
+  LEFT JOIN [SIZE] on gsk.SIZEID = [SIZE].SIZEID
+  LEFT JOIN Color on gsk.colorid = Color.COLORID
+  LEFT JOIN Stock s on gs.KtypeId = s.typeId
+  LEFT JOIN Ptype pt on pt.typeId = gs.PtypeId
+  where 1=1
+    <if test="goodsCode != null and goodsCode != ''" >
+     and pt.UserCode = #{goodsCode,jdbcType=VARCHAR}
+    </if>
+
+    <if test="goodsName != null and goodsName != ''" >
+      and pt.FullName = #{goodsName,jdbcType=VARCHAR}
+    </if>
+
+
+  ORDER BY pt.FullName,pt.UserCode,s.FullName,Color.NAME,[SIZE].NAME;
+
+  </select>
+</mapper>

@@ -2,8 +2,8 @@ package com.pb.charts.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.pb.charts.dao.NewsMapper;
-import com.pb.charts.entity.News;
+import com.pb.charts.dao.TestMapper;
+import com.pb.charts.entity.Test;
 import com.pb.charts.entity.VO.Message;
 import com.pb.charts.annotation.RequestJson;
 import com.pb.charts.services.vo.RedisService;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class testController {
 
     @Autowired
-    private NewsMapper newsMapper;
+    private TestMapper testmapper;
 
     @Autowired
     private RedisService redisService;
@@ -41,17 +41,16 @@ public class testController {
         return message;
     }
 
-    /*@RequestMapping("/get")
-    public Student getStudent(Integer id){
-        Student student = new Student();
-        student = studentMapper.selectByPrimaryKey(id);
-
-        return  student;
-    }*/
+    @RequestMapping("/get")
+    public void getTest(){
+        Test test = new Test();
+        test = testmapper.selectByPrimaryKey(1);
+        System.out.println(test);
+    }
 
     @RequestMapping(value="/getAjax",method = RequestMethod.POST)
     @ResponseBody
-    public void getAjax(@RequestBody News news, @RequestParam(value = "a",required = false) String a){
+    public void getAjax(@RequestBody Test test, @RequestParam(value = "a",required = false) String a){
         System.out.println("ok");
     }
 

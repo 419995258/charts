@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pb.charts.dao.GoodsStocksMapper" >
+  <resultMap id="BaseResultMap" type="com.pb.charts.entity.GoodsStocks" >
+    <id column="orderid" property="orderid" jdbcType="INTEGER" />
+    <result column="PtypeId" property="ptypeid" jdbcType="VARCHAR" />
+    <result column="KtypeId" property="ktypeid" jdbcType="VARCHAR" />
+    <result column="JobNumber" property="jobnumber" jdbcType="VARCHAR" />
+    <result column="OutFactoryDate" property="outfactorydate" jdbcType="VARCHAR" />
+    <result column="Qty" property="qty" jdbcType="NUMERIC" />
+    <result column="Price" property="price" jdbcType="NUMERIC" />
+    <result column="Total" property="total" jdbcType="NUMERIC" />
+    <result column="GoodsOrder" property="goodsorder" jdbcType="INTEGER" />
+    <result column="ZoneID" property="zoneid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    orderid, PtypeId, KtypeId, JobNumber, OutFactoryDate, Qty, Price, Total, GoodsOrder, 
+    ZoneID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pb.charts.entity.GoodsStocksExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from GoodsStocks
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from GoodsStocks
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from GoodsStocks
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pb.charts.entity.GoodsStocksExample" >
+    delete from GoodsStocks
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pb.charts.entity.GoodsStocks" >
+    insert into GoodsStocks (orderid, PtypeId, KtypeId, 
+      JobNumber, OutFactoryDate, Qty, 
+      Price, Total, GoodsOrder, 
+      ZoneID)
+    values (#{orderid,jdbcType=INTEGER}, #{ptypeid,jdbcType=VARCHAR}, #{ktypeid,jdbcType=VARCHAR}, 
+      #{jobnumber,jdbcType=VARCHAR}, #{outfactorydate,jdbcType=VARCHAR}, #{qty,jdbcType=NUMERIC}, 
+      #{price,jdbcType=NUMERIC}, #{total,jdbcType=NUMERIC}, #{goodsorder,jdbcType=INTEGER}, 
+      #{zoneid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pb.charts.entity.GoodsStocks" >
+    insert into GoodsStocks
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderid != null" >
+        orderid,
+      </if>
+      <if test="ptypeid != null" >
+        PtypeId,
+      </if>
+      <if test="ktypeid != null" >
+        KtypeId,
+      </if>
+      <if test="jobnumber != null" >
+        JobNumber,
+      </if>
+      <if test="outfactorydate != null" >
+        OutFactoryDate,
+      </if>
+      <if test="qty != null" >
+        Qty,
+      </if>
+      <if test="price != null" >
+        Price,
+      </if>
+      <if test="total != null" >
+        Total,
+      </if>
+      <if test="goodsorder != null" >
+        GoodsOrder,
+      </if>
+      <if test="zoneid != null" >
+        ZoneID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderid != null" >
+        #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="ptypeid != null" >
+        #{ptypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="ktypeid != null" >
+        #{ktypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="jobnumber != null" >
+        #{jobnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="outfactorydate != null" >
+        #{outfactorydate,jdbcType=VARCHAR},
+      </if>
+      <if test="qty != null" >
+        #{qty,jdbcType=NUMERIC},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=NUMERIC},
+      </if>
+      <if test="total != null" >
+        #{total,jdbcType=NUMERIC},
+      </if>
+      <if test="goodsorder != null" >
+        #{goodsorder,jdbcType=INTEGER},
+      </if>
+      <if test="zoneid != null" >
+        #{zoneid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update GoodsStocks
+    <set >
+      <if test="record.orderid != null" >
+        orderid = #{record.orderid,jdbcType=INTEGER},
+      </if>
+      <if test="record.ptypeid != null" >
+        PtypeId = #{record.ptypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ktypeid != null" >
+        KtypeId = #{record.ktypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobnumber != null" >
+        JobNumber = #{record.jobnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outfactorydate != null" >
+        OutFactoryDate = #{record.outfactorydate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qty != null" >
+        Qty = #{record.qty,jdbcType=NUMERIC},
+      </if>
+      <if test="record.price != null" >
+        Price = #{record.price,jdbcType=NUMERIC},
+      </if>
+      <if test="record.total != null" >
+        Total = #{record.total,jdbcType=NUMERIC},
+      </if>
+      <if test="record.goodsorder != null" >
+        GoodsOrder = #{record.goodsorder,jdbcType=INTEGER},
+      </if>
+      <if test="record.zoneid != null" >
+        ZoneID = #{record.zoneid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update GoodsStocks
+    set orderid = #{record.orderid,jdbcType=INTEGER},
+      PtypeId = #{record.ptypeid,jdbcType=VARCHAR},
+      KtypeId = #{record.ktypeid,jdbcType=VARCHAR},
+      JobNumber = #{record.jobnumber,jdbcType=VARCHAR},
+      OutFactoryDate = #{record.outfactorydate,jdbcType=VARCHAR},
+      Qty = #{record.qty,jdbcType=NUMERIC},
+      Price = #{record.price,jdbcType=NUMERIC},
+      Total = #{record.total,jdbcType=NUMERIC},
+      GoodsOrder = #{record.goodsorder,jdbcType=INTEGER},
+      ZoneID = #{record.zoneid,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pb.charts.entity.GoodsStocks" >
+    update GoodsStocks
+    <set >
+      <if test="ptypeid != null" >
+        PtypeId = #{ptypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="ktypeid != null" >
+        KtypeId = #{ktypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="jobnumber != null" >
+        JobNumber = #{jobnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="outfactorydate != null" >
+        OutFactoryDate = #{outfactorydate,jdbcType=VARCHAR},
+      </if>
+      <if test="qty != null" >
+        Qty = #{qty,jdbcType=NUMERIC},
+      </if>
+      <if test="price != null" >
+        Price = #{price,jdbcType=NUMERIC},
+      </if>
+      <if test="total != null" >
+        Total = #{total,jdbcType=NUMERIC},
+      </if>
+      <if test="goodsorder != null" >
+        GoodsOrder = #{goodsorder,jdbcType=INTEGER},
+      </if>
+      <if test="zoneid != null" >
+        ZoneID = #{zoneid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pb.charts.entity.GoodsStocks" >
+    update GoodsStocks
+    set PtypeId = #{ptypeid,jdbcType=VARCHAR},
+      KtypeId = #{ktypeid,jdbcType=VARCHAR},
+      JobNumber = #{jobnumber,jdbcType=VARCHAR},
+      OutFactoryDate = #{outfactorydate,jdbcType=VARCHAR},
+      Qty = #{qty,jdbcType=NUMERIC},
+      Price = #{price,jdbcType=NUMERIC},
+      Total = #{total,jdbcType=NUMERIC},
+      GoodsOrder = #{goodsorder,jdbcType=INTEGER},
+      ZoneID = #{zoneid,jdbcType=VARCHAR}
+    where orderid = #{orderid,jdbcType=INTEGER}
+  </update>
+</mapper>

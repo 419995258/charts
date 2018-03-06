@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pb.charts.dao.StockMapper" >
+  <resultMap id="BaseResultMap" type="com.pb.charts.entity.Stock" >
+    <id column="typeId" property="typeid" jdbcType="VARCHAR" />
+    <result column="parid" property="parid" jdbcType="VARCHAR" />
+    <result column="leveal" property="leveal" jdbcType="SMALLINT" />
+    <result column="sonnum" property="sonnum" jdbcType="INTEGER" />
+    <result column="soncount" property="soncount" jdbcType="INTEGER" />
+    <result column="FullName" property="fullname" jdbcType="VARCHAR" />
+    <result column="Name" property="name" jdbcType="VARCHAR" />
+    <result column="UserCode" property="usercode" jdbcType="VARCHAR" />
+    <result column="Comment" property="comment" jdbcType="VARCHAR" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+    <result column="Namepy" property="namepy" jdbcType="VARCHAR" />
+    <result column="Rec" property="rec" jdbcType="INTEGER" />
+    <result column="ParRec" property="parrec" jdbcType="INTEGER" />
+    <result column="ZoneID" property="zoneid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    typeId, parid, leveal, sonnum, soncount, FullName, Name, UserCode, Comment, deleted, 
+    Namepy, Rec, ParRec, ZoneID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pb.charts.entity.StockExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from Stock
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from Stock
+    where typeId = #{typeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from Stock
+    where typeId = #{typeid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pb.charts.entity.StockExample" >
+    delete from Stock
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pb.charts.entity.Stock" >
+    insert into Stock (typeId, parid, leveal, 
+      sonnum, soncount, FullName, 
+      Name, UserCode, Comment, 
+      deleted, Namepy, Rec, ParRec, 
+      ZoneID)
+    values (#{typeid,jdbcType=VARCHAR}, #{parid,jdbcType=VARCHAR}, #{leveal,jdbcType=SMALLINT}, 
+      #{sonnum,jdbcType=INTEGER}, #{soncount,jdbcType=INTEGER}, #{fullname,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{usercode,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, 
+      #{deleted,jdbcType=BIT}, #{namepy,jdbcType=VARCHAR}, #{rec,jdbcType=INTEGER}, #{parrec,jdbcType=INTEGER}, 
+      #{zoneid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pb.charts.entity.Stock" >
+    insert into Stock
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="typeid != null" >
+        typeId,
+      </if>
+      <if test="parid != null" >
+        parid,
+      </if>
+      <if test="leveal != null" >
+        leveal,
+      </if>
+      <if test="sonnum != null" >
+        sonnum,
+      </if>
+      <if test="soncount != null" >
+        soncount,
+      </if>
+      <if test="fullname != null" >
+        FullName,
+      </if>
+      <if test="name != null" >
+        Name,
+      </if>
+      <if test="usercode != null" >
+        UserCode,
+      </if>
+      <if test="comment != null" >
+        Comment,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="namepy != null" >
+        Namepy,
+      </if>
+      <if test="rec != null" >
+        Rec,
+      </if>
+      <if test="parrec != null" >
+        ParRec,
+      </if>
+      <if test="zoneid != null" >
+        ZoneID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="typeid != null" >
+        #{typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="parid != null" >
+        #{parid,jdbcType=VARCHAR},
+      </if>
+      <if test="leveal != null" >
+        #{leveal,jdbcType=SMALLINT},
+      </if>
+      <if test="sonnum != null" >
+        #{sonnum,jdbcType=INTEGER},
+      </if>
+      <if test="soncount != null" >
+        #{soncount,jdbcType=INTEGER},
+      </if>
+      <if test="fullname != null" >
+        #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="usercode != null" >
+        #{usercode,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="namepy != null" >
+        #{namepy,jdbcType=VARCHAR},
+      </if>
+      <if test="rec != null" >
+        #{rec,jdbcType=INTEGER},
+      </if>
+      <if test="parrec != null" >
+        #{parrec,jdbcType=INTEGER},
+      </if>
+      <if test="zoneid != null" >
+        #{zoneid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update Stock
+    <set >
+      <if test="record.typeid != null" >
+        typeId = #{record.typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parid != null" >
+        parid = #{record.parid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.leveal != null" >
+        leveal = #{record.leveal,jdbcType=SMALLINT},
+      </if>
+      <if test="record.sonnum != null" >
+        sonnum = #{record.sonnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.soncount != null" >
+        soncount = #{record.soncount,jdbcType=INTEGER},
+      </if>
+      <if test="record.fullname != null" >
+        FullName = #{record.fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        Name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usercode != null" >
+        UserCode = #{record.usercode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.comment != null" >
+        Comment = #{record.comment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deleted != null" >
+        deleted = #{record.deleted,jdbcType=BIT},
+      </if>
+      <if test="record.namepy != null" >
+        Namepy = #{record.namepy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rec != null" >
+        Rec = #{record.rec,jdbcType=INTEGER},
+      </if>
+      <if test="record.parrec != null" >
+        ParRec = #{record.parrec,jdbcType=INTEGER},
+      </if>
+      <if test="record.zoneid != null" >
+        ZoneID = #{record.zoneid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update Stock
+    set typeId = #{record.typeid,jdbcType=VARCHAR},
+      parid = #{record.parid,jdbcType=VARCHAR},
+      leveal = #{record.leveal,jdbcType=SMALLINT},
+      sonnum = #{record.sonnum,jdbcType=INTEGER},
+      soncount = #{record.soncount,jdbcType=INTEGER},
+      FullName = #{record.fullname,jdbcType=VARCHAR},
+      Name = #{record.name,jdbcType=VARCHAR},
+      UserCode = #{record.usercode,jdbcType=VARCHAR},
+      Comment = #{record.comment,jdbcType=VARCHAR},
+      deleted = #{record.deleted,jdbcType=BIT},
+      Namepy = #{record.namepy,jdbcType=VARCHAR},
+      Rec = #{record.rec,jdbcType=INTEGER},
+      ParRec = #{record.parrec,jdbcType=INTEGER},
+      ZoneID = #{record.zoneid,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pb.charts.entity.Stock" >
+    update Stock
+    <set >
+      <if test="parid != null" >
+        parid = #{parid,jdbcType=VARCHAR},
+      </if>
+      <if test="leveal != null" >
+        leveal = #{leveal,jdbcType=SMALLINT},
+      </if>
+      <if test="sonnum != null" >
+        sonnum = #{sonnum,jdbcType=INTEGER},
+      </if>
+      <if test="soncount != null" >
+        soncount = #{soncount,jdbcType=INTEGER},
+      </if>
+      <if test="fullname != null" >
+        FullName = #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="usercode != null" >
+        UserCode = #{usercode,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null" >
+        Comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="namepy != null" >
+        Namepy = #{namepy,jdbcType=VARCHAR},
+      </if>
+      <if test="rec != null" >
+        Rec = #{rec,jdbcType=INTEGER},
+      </if>
+      <if test="parrec != null" >
+        ParRec = #{parrec,jdbcType=INTEGER},
+      </if>
+      <if test="zoneid != null" >
+        ZoneID = #{zoneid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where typeId = #{typeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pb.charts.entity.Stock" >
+    update Stock
+    set parid = #{parid,jdbcType=VARCHAR},
+      leveal = #{leveal,jdbcType=SMALLINT},
+      sonnum = #{sonnum,jdbcType=INTEGER},
+      soncount = #{soncount,jdbcType=INTEGER},
+      FullName = #{fullname,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      UserCode = #{usercode,jdbcType=VARCHAR},
+      Comment = #{comment,jdbcType=VARCHAR},
+      deleted = #{deleted,jdbcType=BIT},
+      Namepy = #{namepy,jdbcType=VARCHAR},
+      Rec = #{rec,jdbcType=INTEGER},
+      ParRec = #{parrec,jdbcType=INTEGER},
+      ZoneID = #{zoneid,jdbcType=VARCHAR}
+    where typeId = #{typeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

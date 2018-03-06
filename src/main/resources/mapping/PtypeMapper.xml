@@ -1,0 +1,1578 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pb.charts.dao.PtypeMapper" >
+  <resultMap id="BaseResultMap" type="com.pb.charts.entity.Ptype" >
+    <id column="typeId" property="typeid" jdbcType="VARCHAR" />
+    <result column="ParId" property="parid" jdbcType="VARCHAR" />
+    <result column="leveal" property="leveal" jdbcType="SMALLINT" />
+    <result column="sonnum" property="sonnum" jdbcType="INTEGER" />
+    <result column="soncount" property="soncount" jdbcType="INTEGER" />
+    <result column="CanModify" property="canmodify" jdbcType="CHAR" />
+    <result column="UserCode" property="usercode" jdbcType="VARCHAR" />
+    <result column="BarCode" property="barcode" jdbcType="VARCHAR" />
+    <result column="FullName" property="fullname" jdbcType="VARCHAR" />
+    <result column="Name" property="name" jdbcType="VARCHAR" />
+    <result column="Standard" property="standard" jdbcType="VARCHAR" />
+    <result column="Type" property="type" jdbcType="VARCHAR" />
+    <result column="Area" property="area" jdbcType="VARCHAR" />
+    <result column="Unit1" property="unit1" jdbcType="VARCHAR" />
+    <result column="Unit2" property="unit2" jdbcType="VARCHAR" />
+    <result column="UnitRate1" property="unitrate1" jdbcType="NUMERIC" />
+    <result column="UnitRate2" property="unitrate2" jdbcType="NUMERIC" />
+    <result column="preprice1" property="preprice1" jdbcType="NUMERIC" />
+    <result column="preprice2" property="preprice2" jdbcType="NUMERIC" />
+    <result column="preprice3" property="preprice3" jdbcType="NUMERIC" />
+    <result column="preprice4" property="preprice4" jdbcType="NUMERIC" />
+    <result column="UsefulLifeMonth" property="usefullifemonth" jdbcType="SMALLINT" />
+    <result column="UsefulLifeDay" property="usefullifeday" jdbcType="SMALLINT" />
+    <result column="COLORGROUPID" property="colorgroupid" jdbcType="INTEGER" />
+    <result column="SIZEGROUPID" property="sizegroupid" jdbcType="INTEGER" />
+    <result column="BREAKWARN" property="breakwarn" jdbcType="NUMERIC" />
+    <result column="Comment" property="comment" jdbcType="VARCHAR" />
+    <result column="recPrice" property="recprice" jdbcType="NUMERIC" />
+    <result column="deleted" property="deleted" jdbcType="INTEGER" />
+    <result column="costmode" property="costmode" jdbcType="INTEGER" />
+    <result column="Namepy" property="namepy" jdbcType="VARCHAR" />
+    <result column="warnup" property="warnup" jdbcType="NUMERIC" />
+    <result column="warndown" property="warndown" jdbcType="NUMERIC" />
+    <result column="Rec" property="rec" jdbcType="INTEGER" />
+    <result column="ParRec" property="parrec" jdbcType="INTEGER" />
+    <result column="FORMATID" property="formatid" jdbcType="VARCHAR" />
+    <result column="CSPZ" property="cspz" jdbcType="INTEGER" />
+    <result column="recPrice1" property="recprice1" jdbcType="NUMERIC" />
+    <result column="MinPrice" property="minprice" jdbcType="NUMERIC" />
+    <result column="vipprice" property="vipprice" jdbcType="NUMERIC" />
+    <result column="specialprice" property="specialprice" jdbcType="NUMERIC" />
+    <result column="taxrate" property="taxrate" jdbcType="INTEGER" />
+    <result column="discount" property="discount" jdbcType="NUMERIC" />
+    <result column="trade" property="trade" jdbcType="BIT" />
+    <result column="Stop" property="stop" jdbcType="BIT" />
+    <result column="material" property="material" jdbcType="INTEGER" />
+    <result column="season" property="season" jdbcType="INTEGER" />
+    <result column="category" property="category" jdbcType="INTEGER" />
+    <result column="year" property="year" jdbcType="INTEGER" />
+    <result column="retailPrice" property="retailprice" jdbcType="NUMERIC" />
+    <result column="discount1" property="discount1" jdbcType="NUMERIC" />
+    <result column="discount2" property="discount2" jdbcType="NUMERIC" />
+    <result column="discount3" property="discount3" jdbcType="NUMERIC" />
+    <result column="porder" property="porder" jdbcType="INTEGER" />
+    <result column="recdiscount" property="recdiscount" jdbcType="NUMERIC" />
+    <result column="recdiscount1" property="recdiscount1" jdbcType="NUMERIC" />
+    <result column="StopDate" property="stopdate" jdbcType="VARCHAR" />
+    <result column="ColorIdList" property="coloridlist" jdbcType="VARCHAR" />
+    <result column="SizeIdList" property="sizeidlist" jdbcType="VARCHAR" />
+    <result column="Attrib1" property="attrib1" jdbcType="INTEGER" />
+    <result column="Attrib2" property="attrib2" jdbcType="INTEGER" />
+    <result column="Attrib3" property="attrib3" jdbcType="INTEGER" />
+    <result column="Attrib4" property="attrib4" jdbcType="INTEGER" />
+    <result column="Ldate" property="ldate" jdbcType="TIMESTAMP" />
+    <result column="ytypeid" property="ytypeid" jdbcType="VARCHAR" />
+    <result column="yrecprice" property="yrecprice" jdbcType="DECIMAL" />
+    <result column="sfzp" property="sfzp" jdbcType="VARCHAR" />
+    <result column="sfly" property="sfly" jdbcType="CHAR" />
+    <result column="lyzl" property="lyzl" jdbcType="DECIMAL" />
+    <result column="lyzk" property="lyzk" jdbcType="DECIMAL" />
+    <result column="jyfs" property="jyfs" jdbcType="INTEGER" />
+    <result column="clstypeid" property="clstypeid" jdbcType="VARCHAR" />
+    <result column="yStyle" property="ystyle" jdbcType="CHAR" />
+    <result column="ycomposition1" property="ycomposition1" jdbcType="VARCHAR" />
+    <result column="ycomposition2" property="ycomposition2" jdbcType="VARCHAR" />
+    <result column="ycomposition3" property="ycomposition3" jdbcType="VARCHAR" />
+    <result column="ltypeid" property="ltypeid" jdbcType="VARCHAR" />
+    <result column="xtypeid" property="xtypeid" jdbcType="VARCHAR" />
+    <result column="sftj" property="sftj" jdbcType="CHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.pb.charts.entity.Ptype" extends="BaseResultMap" >
+    <result column="SPPIC" property="sppic" jdbcType="BLOB" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    typeId, ParId, leveal, sonnum, soncount, CanModify, UserCode, BarCode, FullName, 
+    Name, Standard, Type, Area, Unit1, Unit2, UnitRate1, UnitRate2, preprice1, preprice2, 
+    preprice3, preprice4, UsefulLifeMonth, UsefulLifeDay, COLORGROUPID, SIZEGROUPID, 
+    BREAKWARN, Comment, recPrice, deleted, costmode, Namepy, warnup, warndown, Rec, ParRec, 
+    FORMATID, CSPZ, recPrice1, MinPrice, vipprice, specialprice, taxrate, discount, trade, 
+    Stop, material, season, category, year, retailPrice, discount1, discount2, discount3, 
+    porder, recdiscount, recdiscount1, StopDate, ColorIdList, SizeIdList, Attrib1, Attrib2, 
+    Attrib3, Attrib4, Ldate, ytypeid, yrecprice, sfzp, sfly, lyzl, lyzk, jyfs, clstypeid, 
+    yStyle, ycomposition1, ycomposition2, ycomposition3, ltypeid, xtypeid, sftj
+  </sql>
+  <sql id="Blob_Column_List" >
+    SPPIC
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.pb.charts.entity.PtypeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from Ptype
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.pb.charts.entity.PtypeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from Ptype
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from Ptype
+    where typeId = #{typeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from Ptype
+    where typeId = #{typeid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.pb.charts.entity.PtypeExample" >
+    delete from Ptype
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.pb.charts.entity.Ptype" >
+    insert into Ptype (typeId, ParId, leveal, 
+      sonnum, soncount, CanModify, 
+      UserCode, BarCode, FullName, 
+      Name, Standard, Type, 
+      Area, Unit1, Unit2, 
+      UnitRate1, UnitRate2, preprice1, 
+      preprice2, preprice3, preprice4, 
+      UsefulLifeMonth, UsefulLifeDay, COLORGROUPID, 
+      SIZEGROUPID, BREAKWARN, Comment, 
+      recPrice, deleted, costmode, 
+      Namepy, warnup, warndown, 
+      Rec, ParRec, FORMATID, 
+      CSPZ, recPrice1, MinPrice, 
+      vipprice, specialprice, taxrate, 
+      discount, trade, Stop, material, 
+      season, category, year, 
+      retailPrice, discount1, discount2, 
+      discount3, porder, recdiscount, 
+      recdiscount1, StopDate, ColorIdList, 
+      SizeIdList, Attrib1, Attrib2, 
+      Attrib3, Attrib4, Ldate, 
+      ytypeid, yrecprice, sfzp, 
+      sfly, lyzl, lyzk, jyfs, 
+      clstypeid, yStyle, ycomposition1, 
+      ycomposition2, ycomposition3, ltypeid, 
+      xtypeid, sftj, SPPIC)
+    values (#{typeid,jdbcType=VARCHAR}, #{parid,jdbcType=VARCHAR}, #{leveal,jdbcType=SMALLINT}, 
+      #{sonnum,jdbcType=INTEGER}, #{soncount,jdbcType=INTEGER}, #{canmodify,jdbcType=CHAR}, 
+      #{usercode,jdbcType=VARCHAR}, #{barcode,jdbcType=VARCHAR}, #{fullname,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{standard,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{area,jdbcType=VARCHAR}, #{unit1,jdbcType=VARCHAR}, #{unit2,jdbcType=VARCHAR}, 
+      #{unitrate1,jdbcType=NUMERIC}, #{unitrate2,jdbcType=NUMERIC}, #{preprice1,jdbcType=NUMERIC}, 
+      #{preprice2,jdbcType=NUMERIC}, #{preprice3,jdbcType=NUMERIC}, #{preprice4,jdbcType=NUMERIC}, 
+      #{usefullifemonth,jdbcType=SMALLINT}, #{usefullifeday,jdbcType=SMALLINT}, #{colorgroupid,jdbcType=INTEGER}, 
+      #{sizegroupid,jdbcType=INTEGER}, #{breakwarn,jdbcType=NUMERIC}, #{comment,jdbcType=VARCHAR}, 
+      #{recprice,jdbcType=NUMERIC}, #{deleted,jdbcType=INTEGER}, #{costmode,jdbcType=INTEGER}, 
+      #{namepy,jdbcType=VARCHAR}, #{warnup,jdbcType=NUMERIC}, #{warndown,jdbcType=NUMERIC}, 
+      #{rec,jdbcType=INTEGER}, #{parrec,jdbcType=INTEGER}, #{formatid,jdbcType=VARCHAR}, 
+      #{cspz,jdbcType=INTEGER}, #{recprice1,jdbcType=NUMERIC}, #{minprice,jdbcType=NUMERIC}, 
+      #{vipprice,jdbcType=NUMERIC}, #{specialprice,jdbcType=NUMERIC}, #{taxrate,jdbcType=INTEGER}, 
+      #{discount,jdbcType=NUMERIC}, #{trade,jdbcType=BIT}, #{stop,jdbcType=BIT}, #{material,jdbcType=INTEGER}, 
+      #{season,jdbcType=INTEGER}, #{category,jdbcType=INTEGER}, #{year,jdbcType=INTEGER}, 
+      #{retailprice,jdbcType=NUMERIC}, #{discount1,jdbcType=NUMERIC}, #{discount2,jdbcType=NUMERIC}, 
+      #{discount3,jdbcType=NUMERIC}, #{porder,jdbcType=INTEGER}, #{recdiscount,jdbcType=NUMERIC}, 
+      #{recdiscount1,jdbcType=NUMERIC}, #{stopdate,jdbcType=VARCHAR}, #{coloridlist,jdbcType=VARCHAR}, 
+      #{sizeidlist,jdbcType=VARCHAR}, #{attrib1,jdbcType=INTEGER}, #{attrib2,jdbcType=INTEGER}, 
+      #{attrib3,jdbcType=INTEGER}, #{attrib4,jdbcType=INTEGER}, #{ldate,jdbcType=TIMESTAMP}, 
+      #{ytypeid,jdbcType=VARCHAR}, #{yrecprice,jdbcType=DECIMAL}, #{sfzp,jdbcType=VARCHAR}, 
+      #{sfly,jdbcType=CHAR}, #{lyzl,jdbcType=DECIMAL}, #{lyzk,jdbcType=DECIMAL}, #{jyfs,jdbcType=INTEGER}, 
+      #{clstypeid,jdbcType=VARCHAR}, #{ystyle,jdbcType=CHAR}, #{ycomposition1,jdbcType=VARCHAR}, 
+      #{ycomposition2,jdbcType=VARCHAR}, #{ycomposition3,jdbcType=VARCHAR}, #{ltypeid,jdbcType=VARCHAR}, 
+      #{xtypeid,jdbcType=VARCHAR}, #{sftj,jdbcType=CHAR}, #{sppic,jdbcType=BLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pb.charts.entity.Ptype" >
+    insert into Ptype
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="typeid != null" >
+        typeId,
+      </if>
+      <if test="parid != null" >
+        ParId,
+      </if>
+      <if test="leveal != null" >
+        leveal,
+      </if>
+      <if test="sonnum != null" >
+        sonnum,
+      </if>
+      <if test="soncount != null" >
+        soncount,
+      </if>
+      <if test="canmodify != null" >
+        CanModify,
+      </if>
+      <if test="usercode != null" >
+        UserCode,
+      </if>
+      <if test="barcode != null" >
+        BarCode,
+      </if>
+      <if test="fullname != null" >
+        FullName,
+      </if>
+      <if test="name != null" >
+        Name,
+      </if>
+      <if test="standard != null" >
+        Standard,
+      </if>
+      <if test="type != null" >
+        Type,
+      </if>
+      <if test="area != null" >
+        Area,
+      </if>
+      <if test="unit1 != null" >
+        Unit1,
+      </if>
+      <if test="unit2 != null" >
+        Unit2,
+      </if>
+      <if test="unitrate1 != null" >
+        UnitRate1,
+      </if>
+      <if test="unitrate2 != null" >
+        UnitRate2,
+      </if>
+      <if test="preprice1 != null" >
+        preprice1,
+      </if>
+      <if test="preprice2 != null" >
+        preprice2,
+      </if>
+      <if test="preprice3 != null" >
+        preprice3,
+      </if>
+      <if test="preprice4 != null" >
+        preprice4,
+      </if>
+      <if test="usefullifemonth != null" >
+        UsefulLifeMonth,
+      </if>
+      <if test="usefullifeday != null" >
+        UsefulLifeDay,
+      </if>
+      <if test="colorgroupid != null" >
+        COLORGROUPID,
+      </if>
+      <if test="sizegroupid != null" >
+        SIZEGROUPID,
+      </if>
+      <if test="breakwarn != null" >
+        BREAKWARN,
+      </if>
+      <if test="comment != null" >
+        Comment,
+      </if>
+      <if test="recprice != null" >
+        recPrice,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="costmode != null" >
+        costmode,
+      </if>
+      <if test="namepy != null" >
+        Namepy,
+      </if>
+      <if test="warnup != null" >
+        warnup,
+      </if>
+      <if test="warndown != null" >
+        warndown,
+      </if>
+      <if test="rec != null" >
+        Rec,
+      </if>
+      <if test="parrec != null" >
+        ParRec,
+      </if>
+      <if test="formatid != null" >
+        FORMATID,
+      </if>
+      <if test="cspz != null" >
+        CSPZ,
+      </if>
+      <if test="recprice1 != null" >
+        recPrice1,
+      </if>
+      <if test="minprice != null" >
+        MinPrice,
+      </if>
+      <if test="vipprice != null" >
+        vipprice,
+      </if>
+      <if test="specialprice != null" >
+        specialprice,
+      </if>
+      <if test="taxrate != null" >
+        taxrate,
+      </if>
+      <if test="discount != null" >
+        discount,
+      </if>
+      <if test="trade != null" >
+        trade,
+      </if>
+      <if test="stop != null" >
+        Stop,
+      </if>
+      <if test="material != null" >
+        material,
+      </if>
+      <if test="season != null" >
+        season,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="retailprice != null" >
+        retailPrice,
+      </if>
+      <if test="discount1 != null" >
+        discount1,
+      </if>
+      <if test="discount2 != null" >
+        discount2,
+      </if>
+      <if test="discount3 != null" >
+        discount3,
+      </if>
+      <if test="porder != null" >
+        porder,
+      </if>
+      <if test="recdiscount != null" >
+        recdiscount,
+      </if>
+      <if test="recdiscount1 != null" >
+        recdiscount1,
+      </if>
+      <if test="stopdate != null" >
+        StopDate,
+      </if>
+      <if test="coloridlist != null" >
+        ColorIdList,
+      </if>
+      <if test="sizeidlist != null" >
+        SizeIdList,
+      </if>
+      <if test="attrib1 != null" >
+        Attrib1,
+      </if>
+      <if test="attrib2 != null" >
+        Attrib2,
+      </if>
+      <if test="attrib3 != null" >
+        Attrib3,
+      </if>
+      <if test="attrib4 != null" >
+        Attrib4,
+      </if>
+      <if test="ldate != null" >
+        Ldate,
+      </if>
+      <if test="ytypeid != null" >
+        ytypeid,
+      </if>
+      <if test="yrecprice != null" >
+        yrecprice,
+      </if>
+      <if test="sfzp != null" >
+        sfzp,
+      </if>
+      <if test="sfly != null" >
+        sfly,
+      </if>
+      <if test="lyzl != null" >
+        lyzl,
+      </if>
+      <if test="lyzk != null" >
+        lyzk,
+      </if>
+      <if test="jyfs != null" >
+        jyfs,
+      </if>
+      <if test="clstypeid != null" >
+        clstypeid,
+      </if>
+      <if test="ystyle != null" >
+        yStyle,
+      </if>
+      <if test="ycomposition1 != null" >
+        ycomposition1,
+      </if>
+      <if test="ycomposition2 != null" >
+        ycomposition2,
+      </if>
+      <if test="ycomposition3 != null" >
+        ycomposition3,
+      </if>
+      <if test="ltypeid != null" >
+        ltypeid,
+      </if>
+      <if test="xtypeid != null" >
+        xtypeid,
+      </if>
+      <if test="sftj != null" >
+        sftj,
+      </if>
+      <if test="sppic != null" >
+        SPPIC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="typeid != null" >
+        #{typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="parid != null" >
+        #{parid,jdbcType=VARCHAR},
+      </if>
+      <if test="leveal != null" >
+        #{leveal,jdbcType=SMALLINT},
+      </if>
+      <if test="sonnum != null" >
+        #{sonnum,jdbcType=INTEGER},
+      </if>
+      <if test="soncount != null" >
+        #{soncount,jdbcType=INTEGER},
+      </if>
+      <if test="canmodify != null" >
+        #{canmodify,jdbcType=CHAR},
+      </if>
+      <if test="usercode != null" >
+        #{usercode,jdbcType=VARCHAR},
+      </if>
+      <if test="barcode != null" >
+        #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="fullname != null" >
+        #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="standard != null" >
+        #{standard,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="unit1 != null" >
+        #{unit1,jdbcType=VARCHAR},
+      </if>
+      <if test="unit2 != null" >
+        #{unit2,jdbcType=VARCHAR},
+      </if>
+      <if test="unitrate1 != null" >
+        #{unitrate1,jdbcType=NUMERIC},
+      </if>
+      <if test="unitrate2 != null" >
+        #{unitrate2,jdbcType=NUMERIC},
+      </if>
+      <if test="preprice1 != null" >
+        #{preprice1,jdbcType=NUMERIC},
+      </if>
+      <if test="preprice2 != null" >
+        #{preprice2,jdbcType=NUMERIC},
+      </if>
+      <if test="preprice3 != null" >
+        #{preprice3,jdbcType=NUMERIC},
+      </if>
+      <if test="preprice4 != null" >
+        #{preprice4,jdbcType=NUMERIC},
+      </if>
+      <if test="usefullifemonth != null" >
+        #{usefullifemonth,jdbcType=SMALLINT},
+      </if>
+      <if test="usefullifeday != null" >
+        #{usefullifeday,jdbcType=SMALLINT},
+      </if>
+      <if test="colorgroupid != null" >
+        #{colorgroupid,jdbcType=INTEGER},
+      </if>
+      <if test="sizegroupid != null" >
+        #{sizegroupid,jdbcType=INTEGER},
+      </if>
+      <if test="breakwarn != null" >
+        #{breakwarn,jdbcType=NUMERIC},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="recprice != null" >
+        #{recprice,jdbcType=NUMERIC},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=INTEGER},
+      </if>
+      <if test="costmode != null" >
+        #{costmode,jdbcType=INTEGER},
+      </if>
+      <if test="namepy != null" >
+        #{namepy,jdbcType=VARCHAR},
+      </if>
+      <if test="warnup != null" >
+        #{warnup,jdbcType=NUMERIC},
+      </if>
+      <if test="warndown != null" >
+        #{warndown,jdbcType=NUMERIC},
+      </if>
+      <if test="rec != null" >
+        #{rec,jdbcType=INTEGER},
+      </if>
+      <if test="parrec != null" >
+        #{parrec,jdbcType=INTEGER},
+      </if>
+      <if test="formatid != null" >
+        #{formatid,jdbcType=VARCHAR},
+      </if>
+      <if test="cspz != null" >
+        #{cspz,jdbcType=INTEGER},
+      </if>
+      <if test="recprice1 != null" >
+        #{recprice1,jdbcType=NUMERIC},
+      </if>
+      <if test="minprice != null" >
+        #{minprice,jdbcType=NUMERIC},
+      </if>
+      <if test="vipprice != null" >
+        #{vipprice,jdbcType=NUMERIC},
+      </if>
+      <if test="specialprice != null" >
+        #{specialprice,jdbcType=NUMERIC},
+      </if>
+      <if test="taxrate != null" >
+        #{taxrate,jdbcType=INTEGER},
+      </if>
+      <if test="discount != null" >
+        #{discount,jdbcType=NUMERIC},
+      </if>
+      <if test="trade != null" >
+        #{trade,jdbcType=BIT},
+      </if>
+      <if test="stop != null" >
+        #{stop,jdbcType=BIT},
+      </if>
+      <if test="material != null" >
+        #{material,jdbcType=INTEGER},
+      </if>
+      <if test="season != null" >
+        #{season,jdbcType=INTEGER},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=INTEGER},
+      </if>
+      <if test="retailprice != null" >
+        #{retailprice,jdbcType=NUMERIC},
+      </if>
+      <if test="discount1 != null" >
+        #{discount1,jdbcType=NUMERIC},
+      </if>
+      <if test="discount2 != null" >
+        #{discount2,jdbcType=NUMERIC},
+      </if>
+      <if test="discount3 != null" >
+        #{discount3,jdbcType=NUMERIC},
+      </if>
+      <if test="porder != null" >
+        #{porder,jdbcType=INTEGER},
+      </if>
+      <if test="recdiscount != null" >
+        #{recdiscount,jdbcType=NUMERIC},
+      </if>
+      <if test="recdiscount1 != null" >
+        #{recdiscount1,jdbcType=NUMERIC},
+      </if>
+      <if test="stopdate != null" >
+        #{stopdate,jdbcType=VARCHAR},
+      </if>
+      <if test="coloridlist != null" >
+        #{coloridlist,jdbcType=VARCHAR},
+      </if>
+      <if test="sizeidlist != null" >
+        #{sizeidlist,jdbcType=VARCHAR},
+      </if>
+      <if test="attrib1 != null" >
+        #{attrib1,jdbcType=INTEGER},
+      </if>
+      <if test="attrib2 != null" >
+        #{attrib2,jdbcType=INTEGER},
+      </if>
+      <if test="attrib3 != null" >
+        #{attrib3,jdbcType=INTEGER},
+      </if>
+      <if test="attrib4 != null" >
+        #{attrib4,jdbcType=INTEGER},
+      </if>
+      <if test="ldate != null" >
+        #{ldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ytypeid != null" >
+        #{ytypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="yrecprice != null" >
+        #{yrecprice,jdbcType=DECIMAL},
+      </if>
+      <if test="sfzp != null" >
+        #{sfzp,jdbcType=VARCHAR},
+      </if>
+      <if test="sfly != null" >
+        #{sfly,jdbcType=CHAR},
+      </if>
+      <if test="lyzl != null" >
+        #{lyzl,jdbcType=DECIMAL},
+      </if>
+      <if test="lyzk != null" >
+        #{lyzk,jdbcType=DECIMAL},
+      </if>
+      <if test="jyfs != null" >
+        #{jyfs,jdbcType=INTEGER},
+      </if>
+      <if test="clstypeid != null" >
+        #{clstypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="ystyle != null" >
+        #{ystyle,jdbcType=CHAR},
+      </if>
+      <if test="ycomposition1 != null" >
+        #{ycomposition1,jdbcType=VARCHAR},
+      </if>
+      <if test="ycomposition2 != null" >
+        #{ycomposition2,jdbcType=VARCHAR},
+      </if>
+      <if test="ycomposition3 != null" >
+        #{ycomposition3,jdbcType=VARCHAR},
+      </if>
+      <if test="ltypeid != null" >
+        #{ltypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="xtypeid != null" >
+        #{xtypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="sftj != null" >
+        #{sftj,jdbcType=CHAR},
+      </if>
+      <if test="sppic != null" >
+        #{sppic,jdbcType=BLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update Ptype
+    <set >
+      <if test="record.typeid != null" >
+        typeId = #{record.typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parid != null" >
+        ParId = #{record.parid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.leveal != null" >
+        leveal = #{record.leveal,jdbcType=SMALLINT},
+      </if>
+      <if test="record.sonnum != null" >
+        sonnum = #{record.sonnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.soncount != null" >
+        soncount = #{record.soncount,jdbcType=INTEGER},
+      </if>
+      <if test="record.canmodify != null" >
+        CanModify = #{record.canmodify,jdbcType=CHAR},
+      </if>
+      <if test="record.usercode != null" >
+        UserCode = #{record.usercode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.barcode != null" >
+        BarCode = #{record.barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fullname != null" >
+        FullName = #{record.fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        Name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.standard != null" >
+        Standard = #{record.standard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null" >
+        Type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.area != null" >
+        Area = #{record.area,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unit1 != null" >
+        Unit1 = #{record.unit1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unit2 != null" >
+        Unit2 = #{record.unit2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unitrate1 != null" >
+        UnitRate1 = #{record.unitrate1,jdbcType=NUMERIC},
+      </if>
+      <if test="record.unitrate2 != null" >
+        UnitRate2 = #{record.unitrate2,jdbcType=NUMERIC},
+      </if>
+      <if test="record.preprice1 != null" >
+        preprice1 = #{record.preprice1,jdbcType=NUMERIC},
+      </if>
+      <if test="record.preprice2 != null" >
+        preprice2 = #{record.preprice2,jdbcType=NUMERIC},
+      </if>
+      <if test="record.preprice3 != null" >
+        preprice3 = #{record.preprice3,jdbcType=NUMERIC},
+      </if>
+      <if test="record.preprice4 != null" >
+        preprice4 = #{record.preprice4,jdbcType=NUMERIC},
+      </if>
+      <if test="record.usefullifemonth != null" >
+        UsefulLifeMonth = #{record.usefullifemonth,jdbcType=SMALLINT},
+      </if>
+      <if test="record.usefullifeday != null" >
+        UsefulLifeDay = #{record.usefullifeday,jdbcType=SMALLINT},
+      </if>
+      <if test="record.colorgroupid != null" >
+        COLORGROUPID = #{record.colorgroupid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sizegroupid != null" >
+        SIZEGROUPID = #{record.sizegroupid,jdbcType=INTEGER},
+      </if>
+      <if test="record.breakwarn != null" >
+        BREAKWARN = #{record.breakwarn,jdbcType=NUMERIC},
+      </if>
+      <if test="record.comment != null" >
+        Comment = #{record.comment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recprice != null" >
+        recPrice = #{record.recprice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.deleted != null" >
+        deleted = #{record.deleted,jdbcType=INTEGER},
+      </if>
+      <if test="record.costmode != null" >
+        costmode = #{record.costmode,jdbcType=INTEGER},
+      </if>
+      <if test="record.namepy != null" >
+        Namepy = #{record.namepy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.warnup != null" >
+        warnup = #{record.warnup,jdbcType=NUMERIC},
+      </if>
+      <if test="record.warndown != null" >
+        warndown = #{record.warndown,jdbcType=NUMERIC},
+      </if>
+      <if test="record.rec != null" >
+        Rec = #{record.rec,jdbcType=INTEGER},
+      </if>
+      <if test="record.parrec != null" >
+        ParRec = #{record.parrec,jdbcType=INTEGER},
+      </if>
+      <if test="record.formatid != null" >
+        FORMATID = #{record.formatid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cspz != null" >
+        CSPZ = #{record.cspz,jdbcType=INTEGER},
+      </if>
+      <if test="record.recprice1 != null" >
+        recPrice1 = #{record.recprice1,jdbcType=NUMERIC},
+      </if>
+      <if test="record.minprice != null" >
+        MinPrice = #{record.minprice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.vipprice != null" >
+        vipprice = #{record.vipprice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.specialprice != null" >
+        specialprice = #{record.specialprice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.taxrate != null" >
+        taxrate = #{record.taxrate,jdbcType=INTEGER},
+      </if>
+      <if test="record.discount != null" >
+        discount = #{record.discount,jdbcType=NUMERIC},
+      </if>
+      <if test="record.trade != null" >
+        trade = #{record.trade,jdbcType=BIT},
+      </if>
+      <if test="record.stop != null" >
+        Stop = #{record.stop,jdbcType=BIT},
+      </if>
+      <if test="record.material != null" >
+        material = #{record.material,jdbcType=INTEGER},
+      </if>
+      <if test="record.season != null" >
+        season = #{record.season,jdbcType=INTEGER},
+      </if>
+      <if test="record.category != null" >
+        category = #{record.category,jdbcType=INTEGER},
+      </if>
+      <if test="record.year != null" >
+        year = #{record.year,jdbcType=INTEGER},
+      </if>
+      <if test="record.retailprice != null" >
+        retailPrice = #{record.retailprice,jdbcType=NUMERIC},
+      </if>
+      <if test="record.discount1 != null" >
+        discount1 = #{record.discount1,jdbcType=NUMERIC},
+      </if>
+      <if test="record.discount2 != null" >
+        discount2 = #{record.discount2,jdbcType=NUMERIC},
+      </if>
+      <if test="record.discount3 != null" >
+        discount3 = #{record.discount3,jdbcType=NUMERIC},
+      </if>
+      <if test="record.porder != null" >
+        porder = #{record.porder,jdbcType=INTEGER},
+      </if>
+      <if test="record.recdiscount != null" >
+        recdiscount = #{record.recdiscount,jdbcType=NUMERIC},
+      </if>
+      <if test="record.recdiscount1 != null" >
+        recdiscount1 = #{record.recdiscount1,jdbcType=NUMERIC},
+      </if>
+      <if test="record.stopdate != null" >
+        StopDate = #{record.stopdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.coloridlist != null" >
+        ColorIdList = #{record.coloridlist,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sizeidlist != null" >
+        SizeIdList = #{record.sizeidlist,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attrib1 != null" >
+        Attrib1 = #{record.attrib1,jdbcType=INTEGER},
+      </if>
+      <if test="record.attrib2 != null" >
+        Attrib2 = #{record.attrib2,jdbcType=INTEGER},
+      </if>
+      <if test="record.attrib3 != null" >
+        Attrib3 = #{record.attrib3,jdbcType=INTEGER},
+      </if>
+      <if test="record.attrib4 != null" >
+        Attrib4 = #{record.attrib4,jdbcType=INTEGER},
+      </if>
+      <if test="record.ldate != null" >
+        Ldate = #{record.ldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ytypeid != null" >
+        ytypeid = #{record.ytypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yrecprice != null" >
+        yrecprice = #{record.yrecprice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sfzp != null" >
+        sfzp = #{record.sfzp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sfly != null" >
+        sfly = #{record.sfly,jdbcType=CHAR},
+      </if>
+      <if test="record.lyzl != null" >
+        lyzl = #{record.lyzl,jdbcType=DECIMAL},
+      </if>
+      <if test="record.lyzk != null" >
+        lyzk = #{record.lyzk,jdbcType=DECIMAL},
+      </if>
+      <if test="record.jyfs != null" >
+        jyfs = #{record.jyfs,jdbcType=INTEGER},
+      </if>
+      <if test="record.clstypeid != null" >
+        clstypeid = #{record.clstypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ystyle != null" >
+        yStyle = #{record.ystyle,jdbcType=CHAR},
+      </if>
+      <if test="record.ycomposition1 != null" >
+        ycomposition1 = #{record.ycomposition1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ycomposition2 != null" >
+        ycomposition2 = #{record.ycomposition2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ycomposition3 != null" >
+        ycomposition3 = #{record.ycomposition3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ltypeid != null" >
+        ltypeid = #{record.ltypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xtypeid != null" >
+        xtypeid = #{record.xtypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sftj != null" >
+        sftj = #{record.sftj,jdbcType=CHAR},
+      </if>
+      <if test="record.sppic != null" >
+        SPPIC = #{record.sppic,jdbcType=BLOB},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update Ptype
+    set typeId = #{record.typeid,jdbcType=VARCHAR},
+      ParId = #{record.parid,jdbcType=VARCHAR},
+      leveal = #{record.leveal,jdbcType=SMALLINT},
+      sonnum = #{record.sonnum,jdbcType=INTEGER},
+      soncount = #{record.soncount,jdbcType=INTEGER},
+      CanModify = #{record.canmodify,jdbcType=CHAR},
+      UserCode = #{record.usercode,jdbcType=VARCHAR},
+      BarCode = #{record.barcode,jdbcType=VARCHAR},
+      FullName = #{record.fullname,jdbcType=VARCHAR},
+      Name = #{record.name,jdbcType=VARCHAR},
+      Standard = #{record.standard,jdbcType=VARCHAR},
+      Type = #{record.type,jdbcType=VARCHAR},
+      Area = #{record.area,jdbcType=VARCHAR},
+      Unit1 = #{record.unit1,jdbcType=VARCHAR},
+      Unit2 = #{record.unit2,jdbcType=VARCHAR},
+      UnitRate1 = #{record.unitrate1,jdbcType=NUMERIC},
+      UnitRate2 = #{record.unitrate2,jdbcType=NUMERIC},
+      preprice1 = #{record.preprice1,jdbcType=NUMERIC},
+      preprice2 = #{record.preprice2,jdbcType=NUMERIC},
+      preprice3 = #{record.preprice3,jdbcType=NUMERIC},
+      preprice4 = #{record.preprice4,jdbcType=NUMERIC},
+      UsefulLifeMonth = #{record.usefullifemonth,jdbcType=SMALLINT},
+      UsefulLifeDay = #{record.usefullifeday,jdbcType=SMALLINT},
+      COLORGROUPID = #{record.colorgroupid,jdbcType=INTEGER},
+      SIZEGROUPID = #{record.sizegroupid,jdbcType=INTEGER},
+      BREAKWARN = #{record.breakwarn,jdbcType=NUMERIC},
+      Comment = #{record.comment,jdbcType=VARCHAR},
+      recPrice = #{record.recprice,jdbcType=NUMERIC},
+      deleted = #{record.deleted,jdbcType=INTEGER},
+      costmode = #{record.costmode,jdbcType=INTEGER},
+      Namepy = #{record.namepy,jdbcType=VARCHAR},
+      warnup = #{record.warnup,jdbcType=NUMERIC},
+      warndown = #{record.warndown,jdbcType=NUMERIC},
+      Rec = #{record.rec,jdbcType=INTEGER},
+      ParRec = #{record.parrec,jdbcType=INTEGER},
+      FORMATID = #{record.formatid,jdbcType=VARCHAR},
+      CSPZ = #{record.cspz,jdbcType=INTEGER},
+      recPrice1 = #{record.recprice1,jdbcType=NUMERIC},
+      MinPrice = #{record.minprice,jdbcType=NUMERIC},
+      vipprice = #{record.vipprice,jdbcType=NUMERIC},
+      specialprice = #{record.specialprice,jdbcType=NUMERIC},
+      taxrate = #{record.taxrate,jdbcType=INTEGER},
+      discount = #{record.discount,jdbcType=NUMERIC},
+      trade = #{record.trade,jdbcType=BIT},
+      Stop = #{record.stop,jdbcType=BIT},
+      material = #{record.material,jdbcType=INTEGER},
+      season = #{record.season,jdbcType=INTEGER},
+      category = #{record.category,jdbcType=INTEGER},
+      year = #{record.year,jdbcType=INTEGER},
+      retailPrice = #{record.retailprice,jdbcType=NUMERIC},
+      discount1 = #{record.discount1,jdbcType=NUMERIC},
+      discount2 = #{record.discount2,jdbcType=NUMERIC},
+      discount3 = #{record.discount3,jdbcType=NUMERIC},
+      porder = #{record.porder,jdbcType=INTEGER},
+      recdiscount = #{record.recdiscount,jdbcType=NUMERIC},
+      recdiscount1 = #{record.recdiscount1,jdbcType=NUMERIC},
+      StopDate = #{record.stopdate,jdbcType=VARCHAR},
+      ColorIdList = #{record.coloridlist,jdbcType=VARCHAR},
+      SizeIdList = #{record.sizeidlist,jdbcType=VARCHAR},
+      Attrib1 = #{record.attrib1,jdbcType=INTEGER},
+      Attrib2 = #{record.attrib2,jdbcType=INTEGER},
+      Attrib3 = #{record.attrib3,jdbcType=INTEGER},
+      Attrib4 = #{record.attrib4,jdbcType=INTEGER},
+      Ldate = #{record.ldate,jdbcType=TIMESTAMP},
+      ytypeid = #{record.ytypeid,jdbcType=VARCHAR},
+      yrecprice = #{record.yrecprice,jdbcType=DECIMAL},
+      sfzp = #{record.sfzp,jdbcType=VARCHAR},
+      sfly = #{record.sfly,jdbcType=CHAR},
+      lyzl = #{record.lyzl,jdbcType=DECIMAL},
+      lyzk = #{record.lyzk,jdbcType=DECIMAL},
+      jyfs = #{record.jyfs,jdbcType=INTEGER},
+      clstypeid = #{record.clstypeid,jdbcType=VARCHAR},
+      yStyle = #{record.ystyle,jdbcType=CHAR},
+      ycomposition1 = #{record.ycomposition1,jdbcType=VARCHAR},
+      ycomposition2 = #{record.ycomposition2,jdbcType=VARCHAR},
+      ycomposition3 = #{record.ycomposition3,jdbcType=VARCHAR},
+      ltypeid = #{record.ltypeid,jdbcType=VARCHAR},
+      xtypeid = #{record.xtypeid,jdbcType=VARCHAR},
+      sftj = #{record.sftj,jdbcType=CHAR},
+      SPPIC = #{record.sppic,jdbcType=BLOB}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update Ptype
+    set typeId = #{record.typeid,jdbcType=VARCHAR},
+      ParId = #{record.parid,jdbcType=VARCHAR},
+      leveal = #{record.leveal,jdbcType=SMALLINT},
+      sonnum = #{record.sonnum,jdbcType=INTEGER},
+      soncount = #{record.soncount,jdbcType=INTEGER},
+      CanModify = #{record.canmodify,jdbcType=CHAR},
+      UserCode = #{record.usercode,jdbcType=VARCHAR},
+      BarCode = #{record.barcode,jdbcType=VARCHAR},
+      FullName = #{record.fullname,jdbcType=VARCHAR},
+      Name = #{record.name,jdbcType=VARCHAR},
+      Standard = #{record.standard,jdbcType=VARCHAR},
+      Type = #{record.type,jdbcType=VARCHAR},
+      Area = #{record.area,jdbcType=VARCHAR},
+      Unit1 = #{record.unit1,jdbcType=VARCHAR},
+      Unit2 = #{record.unit2,jdbcType=VARCHAR},
+      UnitRate1 = #{record.unitrate1,jdbcType=NUMERIC},
+      UnitRate2 = #{record.unitrate2,jdbcType=NUMERIC},
+      preprice1 = #{record.preprice1,jdbcType=NUMERIC},
+      preprice2 = #{record.preprice2,jdbcType=NUMERIC},
+      preprice3 = #{record.preprice3,jdbcType=NUMERIC},
+      preprice4 = #{record.preprice4,jdbcType=NUMERIC},
+      UsefulLifeMonth = #{record.usefullifemonth,jdbcType=SMALLINT},
+      UsefulLifeDay = #{record.usefullifeday,jdbcType=SMALLINT},
+      COLORGROUPID = #{record.colorgroupid,jdbcType=INTEGER},
+      SIZEGROUPID = #{record.sizegroupid,jdbcType=INTEGER},
+      BREAKWARN = #{record.breakwarn,jdbcType=NUMERIC},
+      Comment = #{record.comment,jdbcType=VARCHAR},
+      recPrice = #{record.recprice,jdbcType=NUMERIC},
+      deleted = #{record.deleted,jdbcType=INTEGER},
+      costmode = #{record.costmode,jdbcType=INTEGER},
+      Namepy = #{record.namepy,jdbcType=VARCHAR},
+      warnup = #{record.warnup,jdbcType=NUMERIC},
+      warndown = #{record.warndown,jdbcType=NUMERIC},
+      Rec = #{record.rec,jdbcType=INTEGER},
+      ParRec = #{record.parrec,jdbcType=INTEGER},
+      FORMATID = #{record.formatid,jdbcType=VARCHAR},
+      CSPZ = #{record.cspz,jdbcType=INTEGER},
+      recPrice1 = #{record.recprice1,jdbcType=NUMERIC},
+      MinPrice = #{record.minprice,jdbcType=NUMERIC},
+      vipprice = #{record.vipprice,jdbcType=NUMERIC},
+      specialprice = #{record.specialprice,jdbcType=NUMERIC},
+      taxrate = #{record.taxrate,jdbcType=INTEGER},
+      discount = #{record.discount,jdbcType=NUMERIC},
+      trade = #{record.trade,jdbcType=BIT},
+      Stop = #{record.stop,jdbcType=BIT},
+      material = #{record.material,jdbcType=INTEGER},
+      season = #{record.season,jdbcType=INTEGER},
+      category = #{record.category,jdbcType=INTEGER},
+      year = #{record.year,jdbcType=INTEGER},
+      retailPrice = #{record.retailprice,jdbcType=NUMERIC},
+      discount1 = #{record.discount1,jdbcType=NUMERIC},
+      discount2 = #{record.discount2,jdbcType=NUMERIC},
+      discount3 = #{record.discount3,jdbcType=NUMERIC},
+      porder = #{record.porder,jdbcType=INTEGER},
+      recdiscount = #{record.recdiscount,jdbcType=NUMERIC},
+      recdiscount1 = #{record.recdiscount1,jdbcType=NUMERIC},
+      StopDate = #{record.stopdate,jdbcType=VARCHAR},
+      ColorIdList = #{record.coloridlist,jdbcType=VARCHAR},
+      SizeIdList = #{record.sizeidlist,jdbcType=VARCHAR},
+      Attrib1 = #{record.attrib1,jdbcType=INTEGER},
+      Attrib2 = #{record.attrib2,jdbcType=INTEGER},
+      Attrib3 = #{record.attrib3,jdbcType=INTEGER},
+      Attrib4 = #{record.attrib4,jdbcType=INTEGER},
+      Ldate = #{record.ldate,jdbcType=TIMESTAMP},
+      ytypeid = #{record.ytypeid,jdbcType=VARCHAR},
+      yrecprice = #{record.yrecprice,jdbcType=DECIMAL},
+      sfzp = #{record.sfzp,jdbcType=VARCHAR},
+      sfly = #{record.sfly,jdbcType=CHAR},
+      lyzl = #{record.lyzl,jdbcType=DECIMAL},
+      lyzk = #{record.lyzk,jdbcType=DECIMAL},
+      jyfs = #{record.jyfs,jdbcType=INTEGER},
+      clstypeid = #{record.clstypeid,jdbcType=VARCHAR},
+      yStyle = #{record.ystyle,jdbcType=CHAR},
+      ycomposition1 = #{record.ycomposition1,jdbcType=VARCHAR},
+      ycomposition2 = #{record.ycomposition2,jdbcType=VARCHAR},
+      ycomposition3 = #{record.ycomposition3,jdbcType=VARCHAR},
+      ltypeid = #{record.ltypeid,jdbcType=VARCHAR},
+      xtypeid = #{record.xtypeid,jdbcType=VARCHAR},
+      sftj = #{record.sftj,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pb.charts.entity.Ptype" >
+    update Ptype
+    <set >
+      <if test="parid != null" >
+        ParId = #{parid,jdbcType=VARCHAR},
+      </if>
+      <if test="leveal != null" >
+        leveal = #{leveal,jdbcType=SMALLINT},
+      </if>
+      <if test="sonnum != null" >
+        sonnum = #{sonnum,jdbcType=INTEGER},
+      </if>
+      <if test="soncount != null" >
+        soncount = #{soncount,jdbcType=INTEGER},
+      </if>
+      <if test="canmodify != null" >
+        CanModify = #{canmodify,jdbcType=CHAR},
+      </if>
+      <if test="usercode != null" >
+        UserCode = #{usercode,jdbcType=VARCHAR},
+      </if>
+      <if test="barcode != null" >
+        BarCode = #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="fullname != null" >
+        FullName = #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="standard != null" >
+        Standard = #{standard,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        Type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        Area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="unit1 != null" >
+        Unit1 = #{unit1,jdbcType=VARCHAR},
+      </if>
+      <if test="unit2 != null" >
+        Unit2 = #{unit2,jdbcType=VARCHAR},
+      </if>
+      <if test="unitrate1 != null" >
+        UnitRate1 = #{unitrate1,jdbcType=NUMERIC},
+      </if>
+      <if test="unitrate2 != null" >
+        UnitRate2 = #{unitrate2,jdbcType=NUMERIC},
+      </if>
+      <if test="preprice1 != null" >
+        preprice1 = #{preprice1,jdbcType=NUMERIC},
+      </if>
+      <if test="preprice2 != null" >
+        preprice2 = #{preprice2,jdbcType=NUMERIC},
+      </if>
+      <if test="preprice3 != null" >
+        preprice3 = #{preprice3,jdbcType=NUMERIC},
+      </if>
+      <if test="preprice4 != null" >
+        preprice4 = #{preprice4,jdbcType=NUMERIC},
+      </if>
+      <if test="usefullifemonth != null" >
+        UsefulLifeMonth = #{usefullifemonth,jdbcType=SMALLINT},
+      </if>
+      <if test="usefullifeday != null" >
+        UsefulLifeDay = #{usefullifeday,jdbcType=SMALLINT},
+      </if>
+      <if test="colorgroupid != null" >
+        COLORGROUPID = #{colorgroupid,jdbcType=INTEGER},
+      </if>
+      <if test="sizegroupid != null" >
+        SIZEGROUPID = #{sizegroupid,jdbcType=INTEGER},
+      </if>
+      <if test="breakwarn != null" >
+        BREAKWARN = #{breakwarn,jdbcType=NUMERIC},
+      </if>
+      <if test="comment != null" >
+        Comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="recprice != null" >
+        recPrice = #{recprice,jdbcType=NUMERIC},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=INTEGER},
+      </if>
+      <if test="costmode != null" >
+        costmode = #{costmode,jdbcType=INTEGER},
+      </if>
+      <if test="namepy != null" >
+        Namepy = #{namepy,jdbcType=VARCHAR},
+      </if>
+      <if test="warnup != null" >
+        warnup = #{warnup,jdbcType=NUMERIC},
+      </if>
+      <if test="warndown != null" >
+        warndown = #{warndown,jdbcType=NUMERIC},
+      </if>
+      <if test="rec != null" >
+        Rec = #{rec,jdbcType=INTEGER},
+      </if>
+      <if test="parrec != null" >
+        ParRec = #{parrec,jdbcType=INTEGER},
+      </if>
+      <if test="formatid != null" >
+        FORMATID = #{formatid,jdbcType=VARCHAR},
+      </if>
+      <if test="cspz != null" >
+        CSPZ = #{cspz,jdbcType=INTEGER},
+      </if>
+      <if test="recprice1 != null" >
+        recPrice1 = #{recprice1,jdbcType=NUMERIC},
+      </if>
+      <if test="minprice != null" >
+        MinPrice = #{minprice,jdbcType=NUMERIC},
+      </if>
+      <if test="vipprice != null" >
+        vipprice = #{vipprice,jdbcType=NUMERIC},
+      </if>
+      <if test="specialprice != null" >
+        specialprice = #{specialprice,jdbcType=NUMERIC},
+      </if>
+      <if test="taxrate != null" >
+        taxrate = #{taxrate,jdbcType=INTEGER},
+      </if>
+      <if test="discount != null" >
+        discount = #{discount,jdbcType=NUMERIC},
+      </if>
+      <if test="trade != null" >
+        trade = #{trade,jdbcType=BIT},
+      </if>
+      <if test="stop != null" >
+        Stop = #{stop,jdbcType=BIT},
+      </if>
+      <if test="material != null" >
+        material = #{material,jdbcType=INTEGER},
+      </if>
+      <if test="season != null" >
+        season = #{season,jdbcType=INTEGER},
+      </if>
+      <if test="category != null" >
+        category = #{category,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=INTEGER},
+      </if>
+      <if test="retailprice != null" >
+        retailPrice = #{retailprice,jdbcType=NUMERIC},
+      </if>
+      <if test="discount1 != null" >
+        discount1 = #{discount1,jdbcType=NUMERIC},
+      </if>
+      <if test="discount2 != null" >
+        discount2 = #{discount2,jdbcType=NUMERIC},
+      </if>
+      <if test="discount3 != null" >
+        discount3 = #{discount3,jdbcType=NUMERIC},
+      </if>
+      <if test="porder != null" >
+        porder = #{porder,jdbcType=INTEGER},
+      </if>
+      <if test="recdiscount != null" >
+        recdiscount = #{recdiscount,jdbcType=NUMERIC},
+      </if>
+      <if test="recdiscount1 != null" >
+        recdiscount1 = #{recdiscount1,jdbcType=NUMERIC},
+      </if>
+      <if test="stopdate != null" >
+        StopDate = #{stopdate,jdbcType=VARCHAR},
+      </if>
+      <if test="coloridlist != null" >
+        ColorIdList = #{coloridlist,jdbcType=VARCHAR},
+      </if>
+      <if test="sizeidlist != null" >
+        SizeIdList = #{sizeidlist,jdbcType=VARCHAR},
+      </if>
+      <if test="attrib1 != null" >
+        Attrib1 = #{attrib1,jdbcType=INTEGER},
+      </if>
+      <if test="attrib2 != null" >
+        Attrib2 = #{attrib2,jdbcType=INTEGER},
+      </if>
+      <if test="attrib3 != null" >
+        Attrib3 = #{attrib3,jdbcType=INTEGER},
+      </if>
+      <if test="attrib4 != null" >
+        Attrib4 = #{attrib4,jdbcType=INTEGER},
+      </if>
+      <if test="ldate != null" >
+        Ldate = #{ldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ytypeid != null" >
+        ytypeid = #{ytypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="yrecprice != null" >
+        yrecprice = #{yrecprice,jdbcType=DECIMAL},
+      </if>
+      <if test="sfzp != null" >
+        sfzp = #{sfzp,jdbcType=VARCHAR},
+      </if>
+      <if test="sfly != null" >
+        sfly = #{sfly,jdbcType=CHAR},
+      </if>
+      <if test="lyzl != null" >
+        lyzl = #{lyzl,jdbcType=DECIMAL},
+      </if>
+      <if test="lyzk != null" >
+        lyzk = #{lyzk,jdbcType=DECIMAL},
+      </if>
+      <if test="jyfs != null" >
+        jyfs = #{jyfs,jdbcType=INTEGER},
+      </if>
+      <if test="clstypeid != null" >
+        clstypeid = #{clstypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="ystyle != null" >
+        yStyle = #{ystyle,jdbcType=CHAR},
+      </if>
+      <if test="ycomposition1 != null" >
+        ycomposition1 = #{ycomposition1,jdbcType=VARCHAR},
+      </if>
+      <if test="ycomposition2 != null" >
+        ycomposition2 = #{ycomposition2,jdbcType=VARCHAR},
+      </if>
+      <if test="ycomposition3 != null" >
+        ycomposition3 = #{ycomposition3,jdbcType=VARCHAR},
+      </if>
+      <if test="ltypeid != null" >
+        ltypeid = #{ltypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="xtypeid != null" >
+        xtypeid = #{xtypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="sftj != null" >
+        sftj = #{sftj,jdbcType=CHAR},
+      </if>
+      <if test="sppic != null" >
+        SPPIC = #{sppic,jdbcType=BLOB},
+      </if>
+    </set>
+    where typeId = #{typeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.pb.charts.entity.Ptype" >
+    update Ptype
+    set ParId = #{parid,jdbcType=VARCHAR},
+      leveal = #{leveal,jdbcType=SMALLINT},
+      sonnum = #{sonnum,jdbcType=INTEGER},
+      soncount = #{soncount,jdbcType=INTEGER},
+      CanModify = #{canmodify,jdbcType=CHAR},
+      UserCode = #{usercode,jdbcType=VARCHAR},
+      BarCode = #{barcode,jdbcType=VARCHAR},
+      FullName = #{fullname,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      Standard = #{standard,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=VARCHAR},
+      Area = #{area,jdbcType=VARCHAR},
+      Unit1 = #{unit1,jdbcType=VARCHAR},
+      Unit2 = #{unit2,jdbcType=VARCHAR},
+      UnitRate1 = #{unitrate1,jdbcType=NUMERIC},
+      UnitRate2 = #{unitrate2,jdbcType=NUMERIC},
+      preprice1 = #{preprice1,jdbcType=NUMERIC},
+      preprice2 = #{preprice2,jdbcType=NUMERIC},
+      preprice3 = #{preprice3,jdbcType=NUMERIC},
+      preprice4 = #{preprice4,jdbcType=NUMERIC},
+      UsefulLifeMonth = #{usefullifemonth,jdbcType=SMALLINT},
+      UsefulLifeDay = #{usefullifeday,jdbcType=SMALLINT},
+      COLORGROUPID = #{colorgroupid,jdbcType=INTEGER},
+      SIZEGROUPID = #{sizegroupid,jdbcType=INTEGER},
+      BREAKWARN = #{breakwarn,jdbcType=NUMERIC},
+      Comment = #{comment,jdbcType=VARCHAR},
+      recPrice = #{recprice,jdbcType=NUMERIC},
+      deleted = #{deleted,jdbcType=INTEGER},
+      costmode = #{costmode,jdbcType=INTEGER},
+      Namepy = #{namepy,jdbcType=VARCHAR},
+      warnup = #{warnup,jdbcType=NUMERIC},
+      warndown = #{warndown,jdbcType=NUMERIC},
+      Rec = #{rec,jdbcType=INTEGER},
+      ParRec = #{parrec,jdbcType=INTEGER},
+      FORMATID = #{formatid,jdbcType=VARCHAR},
+      CSPZ = #{cspz,jdbcType=INTEGER},
+      recPrice1 = #{recprice1,jdbcType=NUMERIC},
+      MinPrice = #{minprice,jdbcType=NUMERIC},
+      vipprice = #{vipprice,jdbcType=NUMERIC},
+      specialprice = #{specialprice,jdbcType=NUMERIC},
+      taxrate = #{taxrate,jdbcType=INTEGER},
+      discount = #{discount,jdbcType=NUMERIC},
+      trade = #{trade,jdbcType=BIT},
+      Stop = #{stop,jdbcType=BIT},
+      material = #{material,jdbcType=INTEGER},
+      season = #{season,jdbcType=INTEGER},
+      category = #{category,jdbcType=INTEGER},
+      year = #{year,jdbcType=INTEGER},
+      retailPrice = #{retailprice,jdbcType=NUMERIC},
+      discount1 = #{discount1,jdbcType=NUMERIC},
+      discount2 = #{discount2,jdbcType=NUMERIC},
+      discount3 = #{discount3,jdbcType=NUMERIC},
+      porder = #{porder,jdbcType=INTEGER},
+      recdiscount = #{recdiscount,jdbcType=NUMERIC},
+      recdiscount1 = #{recdiscount1,jdbcType=NUMERIC},
+      StopDate = #{stopdate,jdbcType=VARCHAR},
+      ColorIdList = #{coloridlist,jdbcType=VARCHAR},
+      SizeIdList = #{sizeidlist,jdbcType=VARCHAR},
+      Attrib1 = #{attrib1,jdbcType=INTEGER},
+      Attrib2 = #{attrib2,jdbcType=INTEGER},
+      Attrib3 = #{attrib3,jdbcType=INTEGER},
+      Attrib4 = #{attrib4,jdbcType=INTEGER},
+      Ldate = #{ldate,jdbcType=TIMESTAMP},
+      ytypeid = #{ytypeid,jdbcType=VARCHAR},
+      yrecprice = #{yrecprice,jdbcType=DECIMAL},
+      sfzp = #{sfzp,jdbcType=VARCHAR},
+      sfly = #{sfly,jdbcType=CHAR},
+      lyzl = #{lyzl,jdbcType=DECIMAL},
+      lyzk = #{lyzk,jdbcType=DECIMAL},
+      jyfs = #{jyfs,jdbcType=INTEGER},
+      clstypeid = #{clstypeid,jdbcType=VARCHAR},
+      yStyle = #{ystyle,jdbcType=CHAR},
+      ycomposition1 = #{ycomposition1,jdbcType=VARCHAR},
+      ycomposition2 = #{ycomposition2,jdbcType=VARCHAR},
+      ycomposition3 = #{ycomposition3,jdbcType=VARCHAR},
+      ltypeid = #{ltypeid,jdbcType=VARCHAR},
+      xtypeid = #{xtypeid,jdbcType=VARCHAR},
+      sftj = #{sftj,jdbcType=CHAR},
+      SPPIC = #{sppic,jdbcType=BLOB}
+    where typeId = #{typeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pb.charts.entity.Ptype" >
+    update Ptype
+    set ParId = #{parid,jdbcType=VARCHAR},
+      leveal = #{leveal,jdbcType=SMALLINT},
+      sonnum = #{sonnum,jdbcType=INTEGER},
+      soncount = #{soncount,jdbcType=INTEGER},
+      CanModify = #{canmodify,jdbcType=CHAR},
+      UserCode = #{usercode,jdbcType=VARCHAR},
+      BarCode = #{barcode,jdbcType=VARCHAR},
+      FullName = #{fullname,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      Standard = #{standard,jdbcType=VARCHAR},
+      Type = #{type,jdbcType=VARCHAR},
+      Area = #{area,jdbcType=VARCHAR},
+      Unit1 = #{unit1,jdbcType=VARCHAR},
+      Unit2 = #{unit2,jdbcType=VARCHAR},
+      UnitRate1 = #{unitrate1,jdbcType=NUMERIC},
+      UnitRate2 = #{unitrate2,jdbcType=NUMERIC},
+      preprice1 = #{preprice1,jdbcType=NUMERIC},
+      preprice2 = #{preprice2,jdbcType=NUMERIC},
+      preprice3 = #{preprice3,jdbcType=NUMERIC},
+      preprice4 = #{preprice4,jdbcType=NUMERIC},
+      UsefulLifeMonth = #{usefullifemonth,jdbcType=SMALLINT},
+      UsefulLifeDay = #{usefullifeday,jdbcType=SMALLINT},
+      COLORGROUPID = #{colorgroupid,jdbcType=INTEGER},
+      SIZEGROUPID = #{sizegroupid,jdbcType=INTEGER},
+      BREAKWARN = #{breakwarn,jdbcType=NUMERIC},
+      Comment = #{comment,jdbcType=VARCHAR},
+      recPrice = #{recprice,jdbcType=NUMERIC},
+      deleted = #{deleted,jdbcType=INTEGER},
+      costmode = #{costmode,jdbcType=INTEGER},
+      Namepy = #{namepy,jdbcType=VARCHAR},
+      warnup = #{warnup,jdbcType=NUMERIC},
+      warndown = #{warndown,jdbcType=NUMERIC},
+      Rec = #{rec,jdbcType=INTEGER},
+      ParRec = #{parrec,jdbcType=INTEGER},
+      FORMATID = #{formatid,jdbcType=VARCHAR},
+      CSPZ = #{cspz,jdbcType=INTEGER},
+      recPrice1 = #{recprice1,jdbcType=NUMERIC},
+      MinPrice = #{minprice,jdbcType=NUMERIC},
+      vipprice = #{vipprice,jdbcType=NUMERIC},
+      specialprice = #{specialprice,jdbcType=NUMERIC},
+      taxrate = #{taxrate,jdbcType=INTEGER},
+      discount = #{discount,jdbcType=NUMERIC},
+      trade = #{trade,jdbcType=BIT},
+      Stop = #{stop,jdbcType=BIT},
+      material = #{material,jdbcType=INTEGER},
+      season = #{season,jdbcType=INTEGER},
+      category = #{category,jdbcType=INTEGER},
+      year = #{year,jdbcType=INTEGER},
+      retailPrice = #{retailprice,jdbcType=NUMERIC},
+      discount1 = #{discount1,jdbcType=NUMERIC},
+      discount2 = #{discount2,jdbcType=NUMERIC},
+      discount3 = #{discount3,jdbcType=NUMERIC},
+      porder = #{porder,jdbcType=INTEGER},
+      recdiscount = #{recdiscount,jdbcType=NUMERIC},
+      recdiscount1 = #{recdiscount1,jdbcType=NUMERIC},
+      StopDate = #{stopdate,jdbcType=VARCHAR},
+      ColorIdList = #{coloridlist,jdbcType=VARCHAR},
+      SizeIdList = #{sizeidlist,jdbcType=VARCHAR},
+      Attrib1 = #{attrib1,jdbcType=INTEGER},
+      Attrib2 = #{attrib2,jdbcType=INTEGER},
+      Attrib3 = #{attrib3,jdbcType=INTEGER},
+      Attrib4 = #{attrib4,jdbcType=INTEGER},
+      Ldate = #{ldate,jdbcType=TIMESTAMP},
+      ytypeid = #{ytypeid,jdbcType=VARCHAR},
+      yrecprice = #{yrecprice,jdbcType=DECIMAL},
+      sfzp = #{sfzp,jdbcType=VARCHAR},
+      sfly = #{sfly,jdbcType=CHAR},
+      lyzl = #{lyzl,jdbcType=DECIMAL},
+      lyzk = #{lyzk,jdbcType=DECIMAL},
+      jyfs = #{jyfs,jdbcType=INTEGER},
+      clstypeid = #{clstypeid,jdbcType=VARCHAR},
+      yStyle = #{ystyle,jdbcType=CHAR},
+      ycomposition1 = #{ycomposition1,jdbcType=VARCHAR},
+      ycomposition2 = #{ycomposition2,jdbcType=VARCHAR},
+      ycomposition3 = #{ycomposition3,jdbcType=VARCHAR},
+      ltypeid = #{ltypeid,jdbcType=VARCHAR},
+      xtypeid = #{xtypeid,jdbcType=VARCHAR},
+      sftj = #{sftj,jdbcType=CHAR}
+    where typeId = #{typeid,jdbcType=VARCHAR}
+  </update>
+</mapper>
