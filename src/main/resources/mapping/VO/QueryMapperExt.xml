@@ -34,4 +34,28 @@
   ORDER BY pt.FullName,pt.UserCode,s.FullName,Color.NAME,[SIZE].NAME;
 
   </select>
+
+
+  <select id="queryGoodsCode" resultMap="BaseResultMap">
+    select DISTINCT pt.UserCode as goodsCode
+    from
+    Ptype pt
+    where 1=1
+    <if test="goodsCode != null and goodsCode != ''" >
+      and pt.UserCode like #{goodsCode,jdbcType=VARCHAR}
+    </if>
+
+  </select>
+
+  <select id="queryGoodsName" resultMap="BaseResultMap">
+    select DISTINCT pt.FullName as goodsName
+    from
+    Ptype pt
+    where 1=1
+    <if test="goodsName != null and goodsName != ''" >
+      and pt.FullName like #{goodsName,jdbcType=VARCHAR}
+    </if>
+
+  </select>
+
 </mapper>

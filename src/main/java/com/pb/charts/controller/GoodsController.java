@@ -26,8 +26,10 @@ import sun.nio.ch.Net;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController  //代表controller
@@ -66,10 +68,27 @@ public class GoodsController {
     }
 
     @RequestMapping(value="/getGoodsCode",method = RequestMethod.POST)
-    public  List<Ptype> login3(@RequestJson(value = "code") String code){
-        List<Ptype> ptypeList = new ArrayList<Ptype>();
-        System.out.println(code);
-        System.out.println("ok");
-        return ptypeList;
+    public  List<Query> getGoodsCode(@RequestJson(value = "code") String code) throws Exception{
+        List<Query> queryList = new ArrayList<Query>();
+        Map<String,Object> map = new HashMap<String,Object>();
+        if(StringUtils.isBlank(code)){
+            code = "";
+        }
+        map.put("code",code);
+        queryList = goodsService.queryGoodsCode(map);
+        return queryList;
+    }
+
+
+    @RequestMapping(value="/getGoodsName",method = RequestMethod.POST)
+    public  List<Query> getGoodsName(@RequestJson(value = "code") String name) throws Exception{
+        List<Query> queryList = new ArrayList<Query>();
+        Map<String,Object> map = new HashMap<String,Object>();
+        if(StringUtils.isBlank(name)){
+            name = "";
+        }
+        map.put("name",name);
+        queryList = goodsService.queryGoodsName(map);
+        return queryList;
     }
 }

@@ -2,6 +2,8 @@ package com.pb.charts.services.impl;
 
 import com.pb.charts.dao.PtypeMapper;
 import com.pb.charts.dao.VO.QueryMapperExt;
+import com.pb.charts.entity.Ptype;
+import com.pb.charts.entity.PtypeExample;
 import com.pb.charts.entity.VO.Query;
 import com.pb.charts.entity.VO.ResultVo;
 import com.pb.charts.services.IGoodsService;
@@ -17,8 +19,10 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class GoodsServiceImpl extends FengYeBasic implements IGoodsService {
@@ -78,5 +82,27 @@ public class GoodsServiceImpl extends FengYeBasic implements IGoodsService {
 //        this.setReturnPageInfo(psize, pageNum, queryList, resultVo);
         resultVo.setRows(queryList);
         return resultVo;
+    }
+
+    @Override
+    public List<Query> queryGoodsCode(Map<String, Object> map) throws Exception {
+        if(map == null){
+            map = new HashMap<String,Object>();
+        }
+        String code = (String) map.get("code");
+        List<Query> queryList = new ArrayList<Query>();
+        queryList = queryMapperExt.queryGoodsCode("%" + code + "%");
+        return queryList;
+    }
+
+    @Override
+    public List<Query> queryGoodsName(Map<String, Object> map) throws Exception {
+        if(map == null){
+            map = new HashMap<String,Object>();
+        }
+        String name = (String) map.get("name");
+        List<Query> queryList = new ArrayList<Query>();
+        queryList = queryMapperExt.queryGoodsName("%" + name + "%");
+        return queryList;
     }
 }
