@@ -5,6 +5,7 @@ public class Query {
     private String goodsName;
     private String goodsCode;
     private String recPrice;
+    private String retPrice;
     private String stockName;
     private String size;
     private String color;
@@ -40,6 +41,14 @@ public class Query {
 
     public void setRecPrice(String recPrice) {
         this.recPrice = recPrice;
+    }
+
+    public String getRetPrice() {
+        return retPrice;
+    }
+
+    public void setRetPrice(String retPrice) {
+        this.retPrice = retPrice;
     }
 
     public String getStockName() {

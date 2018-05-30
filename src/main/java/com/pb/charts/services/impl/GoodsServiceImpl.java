@@ -69,14 +69,19 @@ public class GoodsServiceImpl extends FengYeBasic implements IGoodsService {
         for (Iterator<Query> queryIterator = queryList.iterator(); queryIterator.hasNext(); ) {
             Query next = queryIterator.next();
             BigDecimal recMoney = new BigDecimal(next.getRecPrice());
+            BigDecimal retMoney = new BigDecimal(next.getRetPrice());
             BigDecimal qty = new BigDecimal(next.getQty());
+
             String rec = null;
+            String ret = null;
             String qt = null;
             //设置金额四舍五入取两位小数
             rec = recMoney.setScale(2, RoundingMode.HALF_UP).toString();
+            ret = retMoney.setScale(2, RoundingMode.HALF_UP).toString();
             //设置数量取整数
             qt = qty.setScale(0).toString();
             next.setRecPrice(rec);
+            next.setRetPrice(ret);
             next.setQty(qt);
         }
 //        this.setReturnPageInfo(psize, pageNum, queryList, resultVo);

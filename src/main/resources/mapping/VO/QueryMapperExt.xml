@@ -14,7 +14,8 @@
 
 
   <select id="selectStocks" resultMap="BaseResultMap">
-    select pt.typeId as id,pt.FullName as goodsName,pt.UserCode as goodsCode,pt.recPrice as recPrice ,s.FullName as stockName,[SIZE].NAME as size,Color.NAME as color,gsk.qty from
+    select pt.typeId as id,pt.FullName as goodsName,pt.UserCode as goodsCode,pt.recPrice as recPrice ,pt.retailPrice as retPrice ,
+    s.FullName as stockName,[SIZE].NAME as size,Color.NAME as color,gsk.qty from
   Goodsstockdetail gsk
   LEFT JOIN GoodsStocks gs on gs.orderid = gsk.orderid
   LEFT JOIN [SIZE] on gsk.SIZEID = [SIZE].SIZEID
@@ -30,6 +31,7 @@
       and pt.FullName = #{goodsName,jdbcType=VARCHAR}
     </if>
 
+    and gsk.qty >= 0
 
   ORDER BY pt.FullName,pt.UserCode,s.FullName,Color.NAME,[SIZE].NAME;
 

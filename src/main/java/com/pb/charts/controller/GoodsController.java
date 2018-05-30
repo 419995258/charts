@@ -60,6 +60,52 @@ public class GoodsController {
 
     }
 
+
+    /**
+     *
+     *
+     *
+     * Goodsstockdetail 库存记录
+     * GoodsStocks      库存
+     * [SIZE]           尺码
+     * Color            颜色
+     * Stock            仓库
+     * Ptype            库存信息
+     *
+     *
+     *
+     *
+     *
+     * typeId       id-----Ptype.typeId = GoodsStocks.PtypeId
+     * FullName     名字--Ptype
+     * UserCode     编码--Ptype
+     * recPrice     进价--Ptype
+     * retailPrice  零售价--Ptype
+     *
+     * FullName     仓库名--Stock
+     * NAME         大小名字--[SIZE]
+     * NAME         颜色名字--[颜色]
+     * qty          剩余数量--Goodsstockdetail
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     * @Description: TODO
+     * @param
+     * @return
+     * @throws
+     * @author pengbin <pengbin>
+     * 2018/5/29 17:19
+     */
     @RequestMapping(value="/getStockList",method = RequestMethod.POST)
     @ResponseBody
     public ResultVo getStockList(@RequestBody ResultVo resultVo) throws Exception{
