@@ -10,11 +10,11 @@ server:
 spring:
   # 数据库配置
   datasource:
-    url: jdbc:jtds:sqlserver://192.168.3.135:1433/方臣2007
-#    url: jdbc:jtds:sqlserver://localhost:1435/方臣2007
+#    url: jdbc:jtds:sqlserver://192.168.3.135:1433/方臣2007
+    url: jdbc:jtds:sqlserver://localhost:1435/方臣2007
     username: sa
-#    password: 19830415asdfgh
-    password: sa
+    password: 19830415asdfgh
+#    password: sa
     driver-class-name: net.sourceforge.jtds.jdbc.Driver
 
 #    url: jdbc:mysql://localhost:3306/shop
